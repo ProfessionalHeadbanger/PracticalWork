@@ -1,5 +1,10 @@
 #pragma once
 #include "InputFileName.h"
+#include "DataInput.h"
+#include "Student.h"
+//#include "Tree.h"
+#include <vector>
+#include <fstream>
 
 namespace CourseWork {
 
@@ -19,9 +24,39 @@ namespace CourseWork {
 		ResultOutput(InputFileName^ parent)
 		{
 			InitializeComponent();
-			parentForm = parent;
+			parentForm1 = parent;
+		}
+		ResultOutput(DataInput^ parent)
+		{
+			InitializeComponent();
+			parentForm2 = parent;
 		}
 
+	public:
+		void SetFileName(String^ file_name)
+		{
+			this->file_name = file_name;
+		}
+	public:
+		String^ GetFileName()
+		{
+			return file_name;
+		}
+	public:
+		std::vector<Student> initStudents()
+		{
+			std::vector<Student> students;
+			msclr::interop::marshal_context context;
+			std::string fname = context.marshal_as<std::string>(file_name);
+			std::ifstream file_input(fname);
+			while (!file_input.eof())
+			{
+				Student tmp;
+				file_input >> tmp;
+				students.push_back(tmp);
+			}
+			return students;
+		}
 	protected:
 		/// <summary>
 		/// Освободить все используемые ресурсы.
@@ -33,20 +68,28 @@ namespace CourseWork {
 				delete components;
 			}
 		}
-	private: InputFileName^ parentForm;
+	private: InputFileName^ parentForm1;
+	private: DataInput^ parentForm2;
+	private: String^ file_name;
 	private: System::Windows::Forms::Button^ button1;
 	protected:
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button4;
 	private: System::Windows::Forms::Button^ button5;
-	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::TextBox^ textBox2;
+	private: System::Windows::Forms::TextBox^ textBox3;
+	private: System::Windows::Forms::TextBox^ textBox4;
+	private: System::Windows::Forms::TextBox^ textBox5;
+	private: System::Windows::Forms::Label^ label1;
+
 
 	private:
 		/// <summary>
 		/// Обязательная переменная конструктора.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -60,8 +103,12 @@ namespace CourseWork {
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button5 = (gcnew System::Windows::Forms::Button());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// button1
@@ -72,6 +119,7 @@ namespace CourseWork {
 			this->button1->TabIndex = 0;
 			this->button1->Text = L"Динамическая цепочка 1";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &ResultOutput::button1_Click);
 			// 
 			// button2
 			// 
@@ -81,6 +129,7 @@ namespace CourseWork {
 			this->button2->TabIndex = 1;
 			this->button2->Text = L"Динамическая цепочка 2";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &ResultOutput::button2_Click);
 			// 
 			// button3
 			// 
@@ -100,6 +149,7 @@ namespace CourseWork {
 			this->button4->TabIndex = 3;
 			this->button4->Text = L"АВЛ Дерево поиска";
 			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &ResultOutput::button4_Click);
 			// 
 			// button5
 			// 
@@ -109,21 +159,70 @@ namespace CourseWork {
 			this->button5->TabIndex = 4;
 			this->button5->Text = L"Список лучших студентов";
 			this->button5->UseVisualStyleBackColor = true;
+			this->button5->Click += gcnew System::EventHandler(this, &ResultOutput::button5_Click);
 			// 
-			// pictureBox1
+			// textBox1
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(187, 34);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(372, 278);
-			this->pictureBox1->TabIndex = 5;
-			this->pictureBox1->TabStop = false;
+			this->textBox1->Location = System::Drawing::Point(291, 72);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->ReadOnly = true;
+			this->textBox1->Size = System::Drawing::Size(154, 20);
+			this->textBox1->TabIndex = 5;
+			// 
+			// textBox2
+			// 
+			this->textBox2->Location = System::Drawing::Point(291, 111);
+			this->textBox2->Name = L"textBox2";
+			this->textBox2->ReadOnly = true;
+			this->textBox2->Size = System::Drawing::Size(154, 20);
+			this->textBox2->TabIndex = 6;
+			// 
+			// textBox3
+			// 
+			this->textBox3->Location = System::Drawing::Point(291, 150);
+			this->textBox3->Name = L"textBox3";
+			this->textBox3->ReadOnly = true;
+			this->textBox3->Size = System::Drawing::Size(154, 20);
+			this->textBox3->TabIndex = 7;
+			// 
+			// textBox4
+			// 
+			this->textBox4->Location = System::Drawing::Point(291, 190);
+			this->textBox4->Name = L"textBox4";
+			this->textBox4->ReadOnly = true;
+			this->textBox4->Size = System::Drawing::Size(154, 20);
+			this->textBox4->TabIndex = 8;
+			// 
+			// textBox5
+			// 
+			this->textBox5->Location = System::Drawing::Point(291, 226);
+			this->textBox5->Name = L"textBox5";
+			this->textBox5->ReadOnly = true;
+			this->textBox5->Size = System::Drawing::Size(154, 20);
+			this->textBox5->TabIndex = 9;
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label1->Location = System::Drawing::Point(319, 34);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(98, 20);
+			this->label1->TabIndex = 10;
+			this->label1->Text = L"Че вывести";
 			// 
 			// ResultOutput
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(571, 345);
-			this->Controls->Add(this->pictureBox1);
+			this->Controls->Add(this->label1);
+			this->Controls->Add(this->textBox5);
+			this->Controls->Add(this->textBox4);
+			this->Controls->Add(this->textBox3);
+			this->Controls->Add(this->textBox2);
+			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->button5);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button3);
@@ -131,12 +230,66 @@ namespace CourseWork {
 			this->Controls->Add(this->button1);
 			this->Name = L"ResultOutput";
 			this->Text = L"Учебная практика";
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
+
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		std::vector<Student> students = initStudents();
+		int count_of_ex = 0;
+		for (int i = 0; i < students.size(); i++)
+		{
+			if (students[i].average_mark == 5.0)
+			{
+				for (int j = i; j > count_of_ex; j--)
+					std::swap(students[j], students[j - 1]);
+				count_of_ex++;
+			}
+		}
+		this->label1->Text = "Динамическая цепочка 1";
+		std::string str1 = students[0].last_name + " " + std::to_string(students[0].average_mark);
+		this->textBox1->Text = gcnew System::String(str1.c_str());
+		std::string str2 = students[1].last_name + " " + std::to_string(students[1].average_mark);
+		this->textBox2->Text = gcnew System::String(str2.c_str());
+		std::string str3 = students[2].last_name + " " + std::to_string(students[2].average_mark);
+		this->textBox3->Text = gcnew System::String(str3.c_str());
+		std::string str4 = students[3].last_name + " " + std::to_string(students[3].average_mark);
+		this->textBox4->Text = gcnew System::String(str4.c_str());
+		std::string str5 = students[4].last_name + " " + std::to_string(students[4].average_mark);
+		this->textBox5->Text = gcnew System::String(str5.c_str());
+	}
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		std::vector<Student> students = initStudents();
+		int min_in;
+		for (int i = 0; i < students.size(); i++)
+		{
+			min_in = i;
+			for (int j = i; j < students.size(); j++)
+				if (students[j].average_mark < students[min_in].average_mark)
+					min_in = j;
+			std::swap(students[i], students[min_in]);
+		}
+		this->label1->Text = "Динамическая цепочка 2";
+		std::string str1 = ((students.size()>=1)?students[0].last_name + " " + std::to_string(students[0].average_mark):"");
+		//std::string str1 = students[0].last_name + " " + std::to_string(students[0].average_mark);
+		this->textBox1->Text = gcnew System::String(str1.c_str());
+		std::string str2 = ((students.size() >= 1) ? students[1].last_name + " " + std::to_string(students[1].average_mark) : "");
+		//std::string str2 = students[1].last_name + " " + std::to_string(students[1].average_mark);
+		this->textBox2->Text = gcnew System::String(str2.c_str());
+		//std::string str3 = students[2].last_name + " " + std::to_string(students[2].average_mark);
+		//this->textBox3->Text = gcnew System::String(str3.c_str());
+		//std::string str4 = students[3].last_name + " " + std::to_string(students[3].average_mark);
+		//this->textBox4->Text = gcnew System::String(str4.c_str());
+		//std::string str5 = students[4].last_name + " " + std::to_string(students[4].average_mark);
+		//this->textBox5->Text = gcnew System::String(str5.c_str());
+	}
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-	};
+	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }

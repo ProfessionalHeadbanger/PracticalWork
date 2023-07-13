@@ -139,7 +139,6 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Student.h" />
-    <ClInclude Include="StudentOutput.h" />
     <ClInclude Include="Tree.h" />
   </ItemGroup>
   <ItemGroup>

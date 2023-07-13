@@ -1,42 +1,94 @@
 #pragma once
 
 #include "Student.h"
+#include "Tree.h"
 #include <fstream>
+#include <vector>
 
-using TInfo = Student;
+using Vec = std::vector<StudentOutput>;
+
 
 class Data
 {
 private:
-    std::fstream *file;
+    std::string filename;
 public:
     Data(std::string filename);
-    void set_student(std::string first_name, std::string last_name, int marks[5]);
-    void file_close();
-    TInfo* first_list();
-    TInfo* second_list();
-    // Tree search_tree();
-    // Tree avl_tree();
-    ~Data();
+    Vec first_list();
+    Vec second_list();
+    Tree search_tree();
+    Tree avl_tree();
 };
 
-Data::Data(std::string filename)
+Data::Data(std::string textBox1)
 {
-    file = new std::fstream(filename);
+    this->filename = textBox1;
 }
 
-void Data::set_student(std::string first_name, std::string last_name, int marks[5])
+
+inline Vec Data::first_list()
 {
-    Student tmp(first_name, last_name, marks);
-    //file << tmp;
+    std::ifstream file(filename);
+    Vec res;
+    Student tmp;
+    int n = 0;
+    while(!file.eof())
+    {
+        file >> tmp;
+        StudentOutput out(tmp);
+        res[n] = out;
+        n++;
+    }
+    int count_of_ex = 0;
+    for(int i = 0; i < n; i++)
+    {
+        if(res[i].average_mark == 5)
+            {
+                for(int j = i; j < count_of_ex; j--)
+                    std::swap(res[j],res[j-1]);
+                count_of_ex++;
+            }
+    }
+    file.close();
+    return res;
 }
 
-void Data::file_close()
+inline Vec Data::second_list()
 {
-    //file.close();
+    std::ifstream file(filename);
+    Vec res;
+    Student tmp;
+    int n = 0;
+    while(!file.eof())
+    {
+        file >> tmp;
+        StudentOutput out(tmp);
+        res[n] = out;
+        n++;
+    }
+    int min_in;
+    for(int i = 0; i < n; i++)
+    {
+        min_in = i;
+        for(int j = i; j < n; j++)
+            if(res[j].average_mark<res[min_in].average_mark) 
+                min_in = j;
+        std::swap(res[i],res[min_in]);
+    }
+    file.close();
+    return res;
 }
 
-Data::~Data()
+inline Tree Data::search_tree()
 {
-    delete file;
+    Tree res;
+    res = Build_Search(filename);
+    return res;
+}
+
+inline Tree Data::avl_tree()
+{
+    Tree res;
+    res = Build_AVL(filename);
+    return res;
 }

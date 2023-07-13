@@ -47,9 +47,6 @@
     <ClInclude Include="Student.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="StudentOutput.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="Tree.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>

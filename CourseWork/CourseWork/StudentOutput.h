@@ -2,8 +2,8 @@
 
 #include <string>
 #include "Student.h"
-//ÿ íà âñÿêèé áóäó ïèñàòü êîììåíòû, ÷òîáû ìåíüøå âîïğîñîâ áûëî
-//ğåøèë ñäåëàòü ñíà÷àëà ñòğóêòóğó ñòóäåíòà ñ êîíñòğóêòîğîì
+//Ñ Ğ½Ğ° Ğ²ÑÑĞºĞ¸Ğ¹ Ğ±ÑƒĞ´Ñƒ Ğ¿Ğ¸ÑĞ°Ñ‚ÑŒ ĞºĞ¾Ğ¼Ğ¼ĞµĞ½Ñ‚Ñ‹, Ñ‡Ñ‚Ğ¾Ğ±Ñ‹ Ğ¼ĞµĞ½ÑŒÑˆĞµ Ğ²Ğ¾Ğ¿Ñ€Ğ¾ÑĞ¾Ğ² Ğ±Ñ‹Ğ»Ğ¾
+//Ñ€ĞµÑˆĞ¸Ğ» ÑĞ´ĞµĞ»Ğ°Ñ‚ÑŒ ÑĞ½Ğ°Ñ‡Ğ°Ğ»Ğ° ÑÑ‚Ñ€ÑƒĞºÑ‚ÑƒÑ€Ñƒ ÑÑ‚ÑƒĞ´ĞµĞ½Ñ‚Ğ° Ñ ĞºĞ¾Ğ½ÑÑ‚Ñ€ÑƒĞºÑ‚Ğ¾Ñ€Ğ¾Ğ¼
 struct StudentOutput
 {
     std::string last_name;
@@ -12,9 +12,9 @@ struct StudentOutput
     StudentOutput(Student student)
     {
         this->last_name = student.last_name;
-        this.average_mark = 0;
+        this->average_mark = 0;
         for(int i =0; i < 5; i++)
-            this.average_mark+= student.marks[i];
-        this.average_mark /= 5.0;
+            this->average_mark+= student.marks[i];
+        this->average_mark /= 5.0;
     }
 };

@@ -30,6 +30,14 @@ Class CourseWork.InputFileName: AutoLayout, AnsiClass, Class, Public, BeforeFiel
 Class CourseWork.DataInput: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(CourseWork.InputFileName): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    SetFileName(String): PrivateScope, Public, HideBySig
+    GetFileName(): PrivateScope, Public, HideBySig
 Class CourseWork.ResultOutput: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
+    Void .ctor(CourseWork.DataInput): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(CourseWork.InputFileName): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    SetFileName(String): PrivateScope, Public, HideBySig
+    GetFileName(): PrivateScope, Public, HideBySig
+    initStudents(vector<Student\,std::allocator<Student> >*): PrivateScope, Public, HideBySig
