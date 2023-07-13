@@ -5,3 +5,10 @@ D:\Лабы\Курсовая работа\CourseWork\CourseWork\x64\Debug\Course
 D:\Лабы\Курсовая работа\CourseWork\CourseWork\x64\Debug\CourseWork.StartScreen.resources
 D:\Лабы\Курсовая работа\CourseWork\CourseWork\x64\Debug\CourseWork.DataInput.resources
 D:\Лабы\Курсовая работа\CourseWork\CourseWork\x64\Debug\CourseWork.ResultOutput.resources
+D:\Лабы\Практическая работа\CourseWork\CourseWork\x64\Debug\CourseWork.vcxproj.AssemblyReference.cache
+D:\Лабы\Практическая работа\CourseWork\CourseWork\x64\Debug\CourseWork.vcxproj.SuggestedBindingRedirects.cache
+D:\Лабы\Практическая работа\CourseWork\CourseWork\x64\Debug\CourseWork.DataInput.resources
+D:\Лабы\Практическая работа\CourseWork\CourseWork\x64\Debug\CourseWork.InputFileName.resources
+D:\Лабы\Практическая работа\CourseWork\CourseWork\x64\Debug\CourseWork.ResultOutput.resources
+D:\Лабы\Практическая работа\CourseWork\CourseWork\x64\Debug\CourseWork.StartScreen.resources
+D:\Лабы\Практическая работа\CourseWork\CourseWork\x64\Debug\CourseWork.vcxproj.GenerateResource.cache

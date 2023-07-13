@@ -35,9 +35,6 @@
     <ClInclude Include="InputFileName.h">
       <Filter>Файлы ресурсов</Filter>
     </ClInclude>
-    <ClInclude Include="Data.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="DataInput.h">
       <Filter>Файлы ресурсов</Filter>
     </ClInclude>

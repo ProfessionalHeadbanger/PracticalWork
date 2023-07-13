@@ -1,8 +1,6 @@
 #pragma once
 #include "InputFileName.h"
 #include "DataInput.h"
-#include "Student.h"
-//#include "Tree.h"
 #include <vector>
 #include <fstream>
 
@@ -55,6 +53,7 @@ namespace CourseWork {
 				file_input >> tmp;
 				students.push_back(tmp);
 			}
+			students.pop_back();
 			return students;
 		}
 	protected:
@@ -83,6 +82,7 @@ namespace CourseWork {
 	private: System::Windows::Forms::TextBox^ textBox4;
 	private: System::Windows::Forms::TextBox^ textBox5;
 	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::RichTextBox^ richTextBox1;
 
 
 	private:
@@ -109,6 +109,7 @@ namespace CourseWork {
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
 			this->SuspendLayout();
 			// 
 			// button1
@@ -168,6 +169,7 @@ namespace CourseWork {
 			this->textBox1->ReadOnly = true;
 			this->textBox1->Size = System::Drawing::Size(154, 20);
 			this->textBox1->TabIndex = 5;
+			this->textBox1->Visible = false;
 			// 
 			// textBox2
 			// 
@@ -176,6 +178,7 @@ namespace CourseWork {
 			this->textBox2->ReadOnly = true;
 			this->textBox2->Size = System::Drawing::Size(154, 20);
 			this->textBox2->TabIndex = 6;
+			this->textBox2->Visible = false;
 			// 
 			// textBox3
 			// 
@@ -184,6 +187,7 @@ namespace CourseWork {
 			this->textBox3->ReadOnly = true;
 			this->textBox3->Size = System::Drawing::Size(154, 20);
 			this->textBox3->TabIndex = 7;
+			this->textBox3->Visible = false;
 			// 
 			// textBox4
 			// 
@@ -192,6 +196,7 @@ namespace CourseWork {
 			this->textBox4->ReadOnly = true;
 			this->textBox4->Size = System::Drawing::Size(154, 20);
 			this->textBox4->TabIndex = 8;
+			this->textBox4->Visible = false;
 			// 
 			// textBox5
 			// 
@@ -200,6 +205,7 @@ namespace CourseWork {
 			this->textBox5->ReadOnly = true;
 			this->textBox5->Size = System::Drawing::Size(154, 20);
 			this->textBox5->TabIndex = 9;
+			this->textBox5->Visible = false;
 			// 
 			// label1
 			// 
@@ -211,12 +217,24 @@ namespace CourseWork {
 			this->label1->Size = System::Drawing::Size(98, 20);
 			this->label1->TabIndex = 10;
 			this->label1->Text = L"Че вывести";
+			this->label1->Visible = false;
+			// 
+			// richTextBox1
+			// 
+			this->richTextBox1->Location = System::Drawing::Point(212, 72);
+			this->richTextBox1->Name = L"richTextBox1";
+			this->richTextBox1->ReadOnly = true;
+			this->richTextBox1->Size = System::Drawing::Size(323, 214);
+			this->richTextBox1->TabIndex = 11;
+			this->richTextBox1->Text = L"";
+			this->richTextBox1->Visible = false;
 			// 
 			// ResultOutput
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(571, 345);
+			this->Controls->Add(this->richTextBox1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->textBox5);
 			this->Controls->Add(this->textBox4);
@@ -248,17 +266,39 @@ namespace CourseWork {
 				count_of_ex++;
 			}
 		}
+		this->richTextBox1->Visible = false;
 		this->label1->Text = "Динамическая цепочка 1";
-		std::string str1 = students[0].last_name + " " + std::to_string(students[0].average_mark);
-		this->textBox1->Text = gcnew System::String(str1.c_str());
-		std::string str2 = students[1].last_name + " " + std::to_string(students[1].average_mark);
-		this->textBox2->Text = gcnew System::String(str2.c_str());
-		std::string str3 = students[2].last_name + " " + std::to_string(students[2].average_mark);
-		this->textBox3->Text = gcnew System::String(str3.c_str());
-		std::string str4 = students[3].last_name + " " + std::to_string(students[3].average_mark);
-		this->textBox4->Text = gcnew System::String(str4.c_str());
-		std::string str5 = students[4].last_name + " " + std::to_string(students[4].average_mark);
-		this->textBox5->Text = gcnew System::String(str5.c_str());
+		this->label1->Visible = true;
+		this->textBox1->Visible = true;
+		this->textBox2->Visible = true;
+		this->textBox3->Visible = true;
+		this->textBox4->Visible = true;
+		this->textBox5->Visible = true;
+		if (students.size() >= 1)
+		{
+			std::string str1 = students[0].last_name + " " + std::to_string(students[0].average_mark);
+			this->textBox1->Text = gcnew System::String(str1.c_str());
+			if (students.size() >= 2)
+			{
+				std::string str2 = students[1].last_name + " " + std::to_string(students[1].average_mark);
+				this->textBox2->Text = gcnew System::String(str2.c_str());
+				if (students.size() >= 3)
+				{
+					std::string str3 = students[2].last_name + " " + std::to_string(students[2].average_mark);
+					this->textBox3->Text = gcnew System::String(str3.c_str());
+					if (students.size() >= 4)
+					{
+						std::string str4 = students[3].last_name + " " + std::to_string(students[3].average_mark);
+						this->textBox4->Text = gcnew System::String(str4.c_str());
+						if (students.size() >= 5)
+						{
+							std::string str5 = students[4].last_name + " " + std::to_string(students[4].average_mark);
+							this->textBox5->Text = gcnew System::String(str5.c_str());
+						}
+					}
+				}
+			}
+		}
 	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		std::vector<Student> students = initStudents();
@@ -271,25 +311,76 @@ namespace CourseWork {
 					min_in = j;
 			std::swap(students[i], students[min_in]);
 		}
+		this->richTextBox1->Visible = false;
 		this->label1->Text = "Динамическая цепочка 2";
-		std::string str1 = ((students.size()>=1)?students[0].last_name + " " + std::to_string(students[0].average_mark):"");
-		//std::string str1 = students[0].last_name + " " + std::to_string(students[0].average_mark);
-		this->textBox1->Text = gcnew System::String(str1.c_str());
-		std::string str2 = ((students.size() >= 1) ? students[1].last_name + " " + std::to_string(students[1].average_mark) : "");
-		//std::string str2 = students[1].last_name + " " + std::to_string(students[1].average_mark);
-		this->textBox2->Text = gcnew System::String(str2.c_str());
-		//std::string str3 = students[2].last_name + " " + std::to_string(students[2].average_mark);
-		//this->textBox3->Text = gcnew System::String(str3.c_str());
-		//std::string str4 = students[3].last_name + " " + std::to_string(students[3].average_mark);
-		//this->textBox4->Text = gcnew System::String(str4.c_str());
-		//std::string str5 = students[4].last_name + " " + std::to_string(students[4].average_mark);
-		//this->textBox5->Text = gcnew System::String(str5.c_str());
+		this->label1->Visible = true;
+		this->textBox1->Visible = true;
+		this->textBox2->Visible = true;
+		this->textBox3->Visible = true;
+		this->textBox4->Visible = true;
+		this->textBox5->Visible = true;
+		if (students.size() >= 1)
+		{
+			std::string str1 = students[0].last_name + " " + std::to_string(students[0].average_mark);
+			this->textBox1->Text = gcnew System::String(str1.c_str());
+			if (students.size() >= 2)
+			{
+				std::string str2 = students[1].last_name + " " + std::to_string(students[1].average_mark);
+				this->textBox2->Text = gcnew System::String(str2.c_str());
+				if (students.size() >= 3)
+				{
+					std::string str3 = students[2].last_name + " " + std::to_string(students[2].average_mark);
+					this->textBox3->Text = gcnew System::String(str3.c_str());
+					if (students.size() >= 4)
+					{
+						std::string str4 = students[3].last_name + " " + std::to_string(students[3].average_mark);
+						this->textBox4->Text = gcnew System::String(str4.c_str());
+						if (students.size() >= 5)
+						{
+							std::string str5 = students[4].last_name + " " + std::to_string(students[4].average_mark);
+							this->textBox5->Text = gcnew System::String(str5.c_str());
+						}
+					}
+				}
+			}
+		}
 	}
-	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
+	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e);
+
+	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e);
+
 	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
+		std::vector<Student> students = initStudents();
+		int max_ex = 0;
+		int count_of_ex;
+		for (auto x : students)
+		{
+			count_of_ex = 0;
+			for (int i = 0; i < 5; i++)
+				if (x.marks[i] == 5)
+					count_of_ex++;
+			if (max_ex < count_of_ex)
+				max_ex = count_of_ex;
+		}
+		std::string str;
+		for (auto x : students)
+		{
+			count_of_ex = 0;
+			for (int i = 0; i < 5; i++)
+				if (x.marks[i] == 5)
+					count_of_ex++;
+			if (max_ex == count_of_ex)
+				str += x.last_name + " " + std::to_string(x.marks[0]) + " " + std::to_string(x.marks[1]) + " " + std::to_string(x.marks[2]) + " " + std::to_string(x.marks[3]) + " " + std::to_string(x.marks[4]) + "\n";
+		}
+		this->textBox1->Visible = false;
+		this->textBox2->Visible = false;
+		this->textBox3->Visible = false;
+		this->textBox4->Visible = false;
+		this->textBox5->Visible = false;
+		this->label1->Text = "Лучшие студенты";
+		this->label1->Visible = true;
+		this->richTextBox1->Visible = true;
+		this->richTextBox1->Text = gcnew System::String(str.c_str());
 	}
-};
+	};
 }

@@ -1,6 +1,6 @@
-#include <iostream>
 #include <fstream>
 #include <string>
+#include <algorithm>
 #include "Student.h"
 
 using TInfo = Student;
@@ -68,8 +68,8 @@ Tree rotateRight(Tree y) {
     x->right = y;
     y->left = T2;
 
-    y->height = max(getHeight(y->left), getHeight(y->right)) + 1;
-    x->height = max(getHeight(x->left), getHeight(x->right)) + 1;
+    y->height = (std::max)(getHeight(y->left), getHeight(y->right)) + 1;
+    x->height = (std::max)(getHeight(x->left), getHeight(x->right)) + 1;
 
     return x;
 }
@@ -82,8 +82,8 @@ Tree rotateLeft(Tree x) {
     y->left = x;
     x->right = T2;
 
-    x->height = max(getHeight(x->left), getHeight(x->right)) + 1;
-    y->height = max(getHeight(y->left), getHeight(y->right)) + 1;
+    x->height = (std::max)(getHeight(x->left), getHeight(x->right)) + 1;
+    y->height = (std::max)(getHeight(y->left), getHeight(y->right)) + 1;
 
     return y;
 }
@@ -100,7 +100,7 @@ Tree insert_avl(Tree node, TInfo key) {
         node->right = insert_avl(node->right, key);
     }
 
-    node->height = 1 + max(getHeight(node->left), getHeight(node->right));
+    node->height = 1 + (std::max)(getHeight(node->left), getHeight(node->right));
 
     int balance = getBalance(node);
 
@@ -133,8 +133,20 @@ Tree Build_AVL(std::string file_name)
 	Student St;
 	while (file >> St)
 		{
-			insert_avl(root, St);
+			root = insert_avl(root, St);
 		}
 	file.close();
 	return root;
+}
+
+void Print(Tree t, std::string& str, int level = 0)
+{
+    if (t && level < 3)
+    {
+        Print(t->right, str, level + 1);
+        for (int i = 0; i < level; i++)
+            str += "                        ";
+        str += t->info.toString() + '\n';
+        Print(t->left, str, level + 1);
+    }
 }

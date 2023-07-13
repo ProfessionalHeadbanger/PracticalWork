@@ -1,8 +1,6 @@
 #pragma once
 
 #include <string>
-//я на всякий буду писать комменты, чтобы меньше вопросов было
-//решил сделать сначала структуру студента с конструктором
 struct Student
 {
     std::string first_name;
@@ -27,7 +25,7 @@ struct Student
     
     friend std::ofstream& operator<< (std::ofstream& os, Student& St)
     {
-        os << St.first_name << " " << St.last_name << " " << St.marks[0] << " " << St.marks[1] << " " << St.marks[2] << " " << St.marks[3] << " " << St.marks[4] << "\n";
+        os << St.first_name << " " << St.last_name << " " << St.marks[0] << " " << St.marks[1] << " " << St.marks[2] << " " << St.marks[3] << " " << St.marks[4] << '\n';
         return os;
     }
     friend std::ifstream& operator>> (std::ifstream& in, Student& St)
@@ -40,6 +38,11 @@ struct Student
         }
         St.average_mark /= 5.0;  
         return in;
+    }
+
+    std::string toString()
+    {
+        return last_name + " " + std::to_string(average_mark);
     }
 };
 

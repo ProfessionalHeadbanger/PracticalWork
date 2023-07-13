@@ -125,7 +125,6 @@
     <ClCompile Include="StartScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Data.h" />
     <ClInclude Include="DataInput.h">
       <FileType>CppForm</FileType>
     </ClInclude>
