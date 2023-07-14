@@ -1,5 +1,4 @@
 #include <fstream>
-#include <string>
 #include <algorithm>
 #include "Student.h"
 
@@ -52,7 +51,6 @@ int getHeight(Tree node) {
     return node->height;
 }
 
-// Функция для получения баланса узла
 int getBalance(Tree node) {
     if (node == nullptr) {
         return 0;
@@ -60,7 +58,6 @@ int getBalance(Tree node) {
     return getHeight(node->left) - getHeight(node->right);
 }
 
-// Функция для поворота вправо
 Tree rotateRight(Tree y) {
     Tree x = y->left;
     Tree T2 = x->right;
@@ -74,7 +71,6 @@ Tree rotateRight(Tree y) {
     return x;
 }
 
-// Функция для поворота влево
 Tree rotateLeft(Tree x) {
     Tree y = x->right;
     Tree T2 = y->left;
@@ -104,7 +100,6 @@ Tree insert_avl(Tree node, TInfo key) {
 
     int balance = getBalance(node);
 
-    // Проверка нарушения баланса и выполнение соответствующих поворотов
     if (balance > 1 && key.average_mark <= node->left->info.average_mark) {
         return rotateRight(node);
     }

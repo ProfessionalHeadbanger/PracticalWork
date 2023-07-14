@@ -1,5 +1,8 @@
 #pragma once
 #include "StartScreen.h"
+#include <string>
+#include <fstream>
+#include <msclr\marshal_cppstd.h>
 
 namespace CourseWork {
 
@@ -10,9 +13,6 @@ namespace CourseWork {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
-	/// <summary>
-	/// —водка дл€ InputFileName
-	/// </summary>
 	public ref class InputFileName : public System::Windows::Forms::Form
 	{
 	public:
@@ -40,9 +40,6 @@ namespace CourseWork {
 	private: bool is_new_file;
 
 	protected:
-		/// <summary>
-		/// ќсвободить все используемые ресурсы.
-		/// </summary>
 		~InputFileName()
 		{
 			if (components)
@@ -52,22 +49,11 @@ namespace CourseWork {
 		}
 	private: StartScreen^ parentForm;
 	private: System::Windows::Forms::Label^ label1;
-	protected:
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::TextBox^ textBox1;
-
-
-	private:
-		/// <summary>
-		/// ќб€зательна€ переменна€ конструктора.
-		/// </summary>
-		System::ComponentModel::Container ^components;
+	private: System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// “ребуемый метод дл€ поддержки конструктора Ч не измен€йте 
-		/// содержимое этого метода с помощью редактора кода.
-		/// </summary>
 		void InitializeComponent(void)
 		{
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -83,7 +69,6 @@ namespace CourseWork {
 			this->label1->Size = System::Drawing::Size(135, 13);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"¬ведите название файла";
-			this->label1->Click += gcnew System::EventHandler(this, &InputFileName::label1_Click);
 			// 
 			// button1
 			// 
@@ -101,7 +86,6 @@ namespace CourseWork {
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(186, 20);
 			this->textBox1->TabIndex = 2;
-			this->textBox1->TextChanged += gcnew System::EventHandler(this, &InputFileName::textBox1_TextChanged);
 			// 
 			// InputFileName
 			// 
@@ -118,10 +102,6 @@ namespace CourseWork {
 
 		}
 #pragma endregion
-	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
 
 	};

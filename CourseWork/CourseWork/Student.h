@@ -1,6 +1,6 @@
 #pragma once
-
 #include <string>
+
 struct Student
 {
     std::string first_name;
@@ -45,4 +45,3 @@ struct Student
         return last_name + " " + std::to_string(average_mark);
     }
 };
-

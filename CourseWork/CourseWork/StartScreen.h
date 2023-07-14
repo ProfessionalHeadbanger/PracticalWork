@@ -1,4 +1,5 @@
 #pragma once
+#include <Windows.h>
 
 namespace CourseWork {
 
@@ -8,25 +9,17 @@ namespace CourseWork {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-	/// <summary>
-	/// —водка дл€ StartScreen
-	/// </summary>
+
 	public ref class StartScreen : public System::Windows::Forms::Form
 	{
 	public:
 		StartScreen(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: добавьте код конструктора
-			//
 		}
 
 
 	protected:
-		/// <summary>
-		/// ќсвободить все используемые ресурсы.
-		/// </summary>
 		~StartScreen()
 		{
 			if (components)
@@ -35,21 +28,11 @@ namespace CourseWork {
 			}
 		}
 	private: System::Windows::Forms::Button^ button1;
-	protected:
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Label^ label1;
-
-	private:
-		/// <summary>
-		/// ќб€зательна€ переменна€ конструктора.
-		/// </summary>
-		System::ComponentModel::Container ^components;
+	private: System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// “ребуемый метод дл€ поддержки конструктора Ч не измен€йте 
-		/// содержимое этого метода с помощью редактора кода.
-		/// </summary>
 		void InitializeComponent(void)
 		{
 			this->button1 = (gcnew System::Windows::Forms::Button());
@@ -105,7 +88,7 @@ namespace CourseWork {
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
-		   
+
 
 	};
 }

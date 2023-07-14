@@ -1,6 +1,5 @@
 #include "StartScreen.h"
 #include "InputFileName.h"
-#include <Windows.h>
 
 using namespace CourseWork;
 
@@ -33,4 +32,3 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	Application::Run(gcnew StartScreen);
 	return 0;
 }
-

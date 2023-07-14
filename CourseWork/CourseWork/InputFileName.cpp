@@ -1,10 +1,6 @@
 #include "InputFileName.h"
 #include "DataInput.h"
 #include "ResultOutput.h"
-#include <Windows.h>
-#include <string>
-#include <fstream>
-#include <msclr\marshal_cppstd.h>
 
 namespace CourseWork
 {
