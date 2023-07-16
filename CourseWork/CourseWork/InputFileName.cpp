@@ -29,18 +29,18 @@ namespace CourseWork
 					}
 					else
 					{
-						MessageBox::Show(L"Такой файл не найден", L"Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+						MessageBox::Show(L"РўР°РєРѕР№ С„Р°Р№Р» РЅРµ РЅР°Р№РґРµРЅ", L"РћС€РёР±РєР°", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 					}
 				}
 			}
 			else
 			{
-				MessageBox::Show(L"Файл должен быть .txt", L"Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+				MessageBox::Show(L"Р¤Р°Р№Р» РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ .txt", L"РћС€РёР±РєР°", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 			}
 		}
 		else
 		{
-			MessageBox::Show(L"Вы не ввели данные в поле", L"Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+			MessageBox::Show(L"Р’С‹ РЅРµ РІРІРµР»Рё РґР°РЅРЅС‹Рµ РІ РїРѕР»Рµ", L"РћС€РёР±РєР°", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 		}
 	}
 }
