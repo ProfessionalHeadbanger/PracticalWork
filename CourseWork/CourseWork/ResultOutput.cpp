@@ -8,14 +8,8 @@ namespace CourseWork
 		std::string fname = context.marshal_as<std::string>(file_name);
 		Tree T = Build_Search(fname);
 
-		this->textBox1->Visible = false;
-		this->textBox2->Visible = false;
-		this->textBox3->Visible = false;
-		this->textBox4->Visible = false;
-		this->textBox5->Visible = false;
 		this->label1->Text = "Дерево поиска";
 		this->label1->Visible = true;
-		this->richTextBox1->Visible = true;
 		std::string str;
 		Print(T, str);
 		this->richTextBox1->Text = gcnew System::String(str.c_str());
@@ -29,14 +23,8 @@ namespace CourseWork
 		std::string fname = context.marshal_as<std::string>(file_name);
 		Tree T = Build_AVL(fname);
 
-		this->textBox1->Visible = false;
-		this->textBox2->Visible = false;
-		this->textBox3->Visible = false;
-		this->textBox4->Visible = false;
-		this->textBox5->Visible = false;
 		this->label1->Text = "АВЛ-Дерево поиска";
 		this->label1->Visible = true;
-		this->richTextBox1->Visible = true;
 		std::string str;
 		Print(T, str);
 		this->richTextBox1->Text = gcnew System::String(str.c_str());

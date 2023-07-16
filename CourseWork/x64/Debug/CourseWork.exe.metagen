@@ -40,4 +40,4 @@ Class CourseWork.ResultOutput: AutoLayout, AnsiClass, Class, Public, BeforeField
   Methods:
     SetFileName(String): PrivateScope, Public, HideBySig
     GetFileName(): PrivateScope, Public, HideBySig
-    initStudents(vector<Student\,std::allocator<Student> >*): PrivateScope, Public, HideBySig
+    initStudents(list<Student\,std::allocator<Student> >*): PrivateScope, Public, HideBySig

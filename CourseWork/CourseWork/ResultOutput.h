@@ -2,6 +2,7 @@
 #include "InputFileName.h"
 #include "DataInput.h"
 #include <vector>
+#include <list>
 
 namespace CourseWork {
 
@@ -37,9 +38,9 @@ namespace CourseWork {
 			return file_name;
 		}
 	public:
-		std::vector<Student> initStudents()
+		std::list<Student> initStudents()
 		{
-			std::vector<Student> students;
+			std::list<Student> students;
 			msclr::interop::marshal_context context;
 			std::string fname = context.marshal_as<std::string>(file_name);
 			std::ifstream file_input(fname);
@@ -59,6 +60,7 @@ namespace CourseWork {
 			{
 				delete components;
 			}
+			Application::Exit();
 		}
 	private: InputFileName^ parentForm1;
 	private: DataInput^ parentForm2;
@@ -209,7 +211,6 @@ namespace CourseWork {
 			   this->richTextBox1->Size = System::Drawing::Size(323, 214);
 			   this->richTextBox1->TabIndex = 11;
 			   this->richTextBox1->Text = L"";
-			   this->richTextBox1->Visible = false;
 			   // 
 			   // ResultOutput
 			   // 
@@ -237,102 +238,63 @@ namespace CourseWork {
 #pragma endregion
 
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		std::vector<Student> students = initStudents();
-		int count_of_ex = 0;
-		for (int i = 0; i < students.size(); i++)
+		std::list<Student> students = initStudents();
+		std::list<Student> students_output;
+		while (!students.empty())
 		{
-			if (students[i].average_mark == 5.0)
+			if (students.front().average_mark == 5.0)
 			{
-				for (int j = i; j > count_of_ex; j--)
-					std::swap(students[j], students[j - 1]);
-				count_of_ex++;
+				students_output.push_front(students.front());
 			}
+			else
+			{
+				students_output.push_back(students.front());
+			}
+			students.pop_front();
 		}
-		this->richTextBox1->Visible = false;
+
+		std::string str;
 		this->label1->Text = "Динамическая цепочка 1";
 		this->label1->Visible = true;
-		this->textBox1->Visible = true;
-		this->textBox2->Visible = true;
-		this->textBox3->Visible = true;
-		this->textBox4->Visible = true;
-		this->textBox5->Visible = true;
-		if (students.size() >= 1)
+		while (!students_output.empty())
 		{
-			std::string str1 = students[0].last_name + " " + std::to_string(students[0].average_mark);
-			this->textBox1->Text = gcnew System::String(str1.c_str());
-			if (students.size() >= 2)
-			{
-				std::string str2 = students[1].last_name + " " + std::to_string(students[1].average_mark);
-				this->textBox2->Text = gcnew System::String(str2.c_str());
-				if (students.size() >= 3)
-				{
-					std::string str3 = students[2].last_name + " " + std::to_string(students[2].average_mark);
-					this->textBox3->Text = gcnew System::String(str3.c_str());
-					if (students.size() >= 4)
-					{
-						std::string str4 = students[3].last_name + " " + std::to_string(students[3].average_mark);
-						this->textBox4->Text = gcnew System::String(str4.c_str());
-						if (students.size() >= 5)
-						{
-							std::string str5 = students[4].last_name + " " + std::to_string(students[4].average_mark);
-							this->textBox5->Text = gcnew System::String(str5.c_str());
-						}
-					}
-				}
-			}
+			str += students_output.front().last_name + " " + std::to_string(students_output.front().average_mark) + "\n";
+			students_output.pop_front();
 		}
+		this->richTextBox1->Text = gcnew System::String(str.c_str());
 	}
+
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-		std::vector<Student> students = initStudents();
-		int min_in;
-		for (int i = 0; i < students.size(); i++)
+		std::list<Student> students = initStudents();
+		std::list<Student>::iterator min_in;
+		for (std::list<Student>::iterator i = students.begin(); i != students.end(); i++)
 		{
 			min_in = i;
-			for (int j = i; j < students.size(); j++)
-				if (students[j].average_mark < students[min_in].average_mark)
-					min_in = j;
-			std::swap(students[i], students[min_in]);
-		}
-		this->richTextBox1->Visible = false;
-		this->label1->Text = "Динамическая цепочка 2";
-		this->label1->Visible = true;
-		this->textBox1->Visible = true;
-		this->textBox2->Visible = true;
-		this->textBox3->Visible = true;
-		this->textBox4->Visible = true;
-		this->textBox5->Visible = true;
-		if (students.size() >= 1)
-		{
-			std::string str1 = students[0].last_name + " " + std::to_string(students[0].average_mark);
-			this->textBox1->Text = gcnew System::String(str1.c_str());
-			if (students.size() >= 2)
+			for (std::list<Student>::iterator j = i; j != students.end(); j++)
 			{
-				std::string str2 = students[1].last_name + " " + std::to_string(students[1].average_mark);
-				this->textBox2->Text = gcnew System::String(str2.c_str());
-				if (students.size() >= 3)
+				if ((*j).average_mark < (*min_in).average_mark)
 				{
-					std::string str3 = students[2].last_name + " " + std::to_string(students[2].average_mark);
-					this->textBox3->Text = gcnew System::String(str3.c_str());
-					if (students.size() >= 4)
-					{
-						std::string str4 = students[3].last_name + " " + std::to_string(students[3].average_mark);
-						this->textBox4->Text = gcnew System::String(str4.c_str());
-						if (students.size() >= 5)
-						{
-							std::string str5 = students[4].last_name + " " + std::to_string(students[4].average_mark);
-							this->textBox5->Text = gcnew System::String(str5.c_str());
-						}
-					}
+					min_in = j;
 				}
 			}
+			std::swap(*i, *min_in);
 		}
+		std::string str;
+		this->label1->Text = "Динамическая цепочка 2";
+		this->label1->Visible = true;
+		while (!students.empty())
+		{
+			str += students.front().last_name + " " + std::to_string(students.front().average_mark) + "\n";
+			students.pop_front();
+		}
+		this->richTextBox1->Text = gcnew System::String(str.c_str());
 	}
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e);
 
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e);
 
 	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
-		std::vector<Student> students = initStudents();
+		std::list<Student> students = initStudents();
 		int max_ex = 0;
 		int count_of_ex;
 		for (auto x : students)
@@ -354,14 +316,8 @@ namespace CourseWork {
 			if (max_ex == count_of_ex)
 				str += x.last_name + " " + std::to_string(x.marks[0]) + " " + std::to_string(x.marks[1]) + " " + std::to_string(x.marks[2]) + " " + std::to_string(x.marks[3]) + " " + std::to_string(x.marks[4]) + "\n";
 		}
-		this->textBox1->Visible = false;
-		this->textBox2->Visible = false;
-		this->textBox3->Visible = false;
-		this->textBox4->Visible = false;
-		this->textBox5->Visible = false;
 		this->label1->Text = "Лучшие студенты";
 		this->label1->Visible = true;
-		this->richTextBox1->Visible = true;
 		this->richTextBox1->Text = gcnew System::String(str.c_str());
 	}
 	};

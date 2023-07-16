@@ -5,16 +5,13 @@ struct Student
 {
     std::string first_name;
     std::string last_name;
-    int* marks;
+    int marks[5];
     double average_mark;
-    Student(){
-        marks = new int[5];
-    };
+    Student(){};
     Student(std::string first_name, std::string last_name, int marks[5])
     {
         this->first_name = first_name;
         this->last_name = last_name;
-        this->marks = new int[5];
         for (size_t i = 0; i < 5; i++)
         { 
             this->marks[i] = marks[i];

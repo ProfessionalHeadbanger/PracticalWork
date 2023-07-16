@@ -36,6 +36,7 @@ namespace CourseWork {
 			{
 				delete components;
 			}
+			Application::Exit();
 		}
 	private: InputFileName^ parentForm;
 	private: System::String^ file_name;

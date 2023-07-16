@@ -77,7 +77,7 @@ void updateHeight(Tree node)
 
 Tree rotateRight(Tree y) {
     Tree x = y->left;
-    Tree T2 = x->right; //выдает исключение здесь, так как y->left = NULL, а x->right и подавно NULL
+    Tree T2 = x->right;
 
     x->right = y;
     y->left = T2;
@@ -124,11 +124,11 @@ Tree insert_avl(Tree node, TInfo key) {
 
     int balance = getBalance(node);
 
-    if (balance > 1 && key.average_mark <= node->left->info.average_mark) {
+    if (balance > 1 && key.average_mark < node->left->info.average_mark) {
         return rotateRight(node);
     }
 
-    if (balance < -1 && key.average_mark > node->right->info.average_mark) {
+    if (balance < -1 && key.average_mark >= node->right->info.average_mark) {
         return rotateLeft(node);
     }
 

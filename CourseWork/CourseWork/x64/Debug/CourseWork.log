@@ -1,7 +1,3 @@
-﻿  DataInput.cpp
-  InputFileName.cpp
-  ResultOutput.cpp
-  StartScreen.cpp
-  Создание кода...
+﻿  ResultOutput.cpp
   DataInput.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
   CourseWork.vcxproj -> D:\Лабы\Практическая работа\CourseWork\x64\Debug\CourseWork.exe

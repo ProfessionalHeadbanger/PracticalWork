@@ -46,6 +46,7 @@ namespace CourseWork {
 			{
 				delete components;
 			}
+			Application::Exit();
 		}
 	private: StartScreen^ parentForm;
 	private: System::Windows::Forms::Label^ label1;
