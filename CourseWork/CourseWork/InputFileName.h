@@ -69,7 +69,7 @@ namespace CourseWork {
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(135, 13);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"Ââåäèòå íàçâàíèå ôàéëà";
+			this->label1->Text = L"Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ Ñ„Ð°Ð¹Ð»Ð°";
 			// 
 			// button1
 			// 
@@ -77,7 +77,7 @@ namespace CourseWork {
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 1;
-			this->button1->Text = L"Îòïðàâèòü";
+			this->button1->Text = L"ÐžÑ‚Ð¿Ñ€Ð°Ð²Ð¸Ñ‚ÑŒ";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &InputFileName::button1_Click);
 			// 
@@ -97,7 +97,7 @@ namespace CourseWork {
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label1);
 			this->Name = L"InputFileName";
-			this->Text = L"Ó÷åáíàÿ ïðàêòèêà";
+			this->Text = L"Ð£Ñ‡ÐµÐ±Ð½Ð°Ñ Ð¿Ñ€Ð°ÐºÑ‚Ð¸ÐºÐ°";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
