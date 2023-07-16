@@ -90,7 +90,7 @@ Tree insert_avl(Tree node, TInfo key) {
         node = new NODE(key);
     }
 
-    if (key.average_mark < node->info.average_mark) {
+    if (key.average_mark <= node->info.average_mark) {
         node->left = insert_avl(node->left, key);
     } else if (key.average_mark > node->info.average_mark) {
         node->right = insert_avl(node->right, key);
