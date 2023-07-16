@@ -121,7 +121,7 @@ Tree insert_avl(Tree node, TInfo key) {
     return node;
 }
 
-Tree build_avl(std::string filename)
+Tree Build_avl(std::string filename)
 {
 	std::fstream file(filename);
 	Student st;
