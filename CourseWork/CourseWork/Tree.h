@@ -121,6 +121,19 @@ Tree insert_avl(Tree node, TInfo key) {
     return node;
 }
 
+Tree Build_avl(std::string filename)
+{
+	std::fstream file(filename);
+	Student st;
+	Tree Res;
+	while(file >> st)
+	{
+		Res = insert_avl(Res, st);
+	}
+	file.close();
+	return Res;
+}
+
 void Print(Tree t, std::string& str, int level = 0)
 {
     if (t && level < 3)
