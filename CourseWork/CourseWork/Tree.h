@@ -65,8 +65,8 @@ Tree rotateRight(Tree y) {
     x->right = y;
     y->left = T2;
 
-    y->height = std::max(getHeight(y->left->info.average_mark), getHeight(y->right->info.average_mark)) + 1;
-    x->height = (std::max)(getHeight(x->left->info.average_mark), getHeight(x->right->info.average_mark)) + 1;
+    y->height = std::max(getHeight(y->left), getHeight(y->right)) + 1;
+    x->height = (std::max)(getHeight(x->left), getHeight(x->right)) + 1;
 
     return x;
 }
@@ -78,8 +78,8 @@ Tree rotateLeft(Tree x) {
     y->left = x;
     x->right = T2;
 
-    x->height = std::max(getHeight(x->left->info.average_mark), getHeight(x->right->info.average_mark)) + 1;
-    y->height = std::max(getHeight(y->left->info.average_mark), getHeight(y->right->info.average_mark)) + 1;
+    x->height = std::max(getHeight(x->left), getHeight(x->right)) + 1;
+    y->height = std::max(getHeight(y->left), getHeight(y->right)) + 1;
 
     return y;
 }
@@ -119,19 +119,6 @@ Tree insert_avl(Tree node, TInfo key) {
     }
 
     return node;
-}
-
-Tree Build_AVL(std::string file_name)
-{
-	std::ifstream file(file_name);
-	Tree root = nullptr;
-	Student St;
-	while (file >> St)
-		{
-			root = insert_avl(root, St);
-		}
-	file.close();
-	return root;
 }
 
 void Print(Tree t, std::string& str, int level = 0)
