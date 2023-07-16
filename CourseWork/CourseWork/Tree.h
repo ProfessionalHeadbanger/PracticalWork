@@ -65,8 +65,8 @@ Tree rotateRight(Tree y) {
     x->right = y;
     y->left = T2;
 
-    y->height = (std::max)(getHeight(y->left), getHeight(y->right)) + 1;
-    x->height = (std::max)(getHeight(x->left), getHeight(x->right)) + 1;
+    y->height = std::max(getHeight(y->left->info.average_mark), getHeight(y->right->info.average_mark)) + 1;
+    x->height = (std::max)(getHeight(x->left->info.average_mark), getHeight(x->right->info.average_mark)) + 1;
 
     return x;
 }
@@ -78,8 +78,8 @@ Tree rotateLeft(Tree x) {
     y->left = x;
     x->right = T2;
 
-    x->height = (std::max)(getHeight(x->left), getHeight(x->right)) + 1;
-    y->height = (std::max)(getHeight(y->left), getHeight(y->right)) + 1;
+    x->height = std::max(getHeight(x->left->info.average_mark), getHeight(x->right->info.average_mark)) + 1;
+    y->height = std::max(getHeight(y->left->info.average_mark), getHeight(y->right->info.average_mark)) + 1;
 
     return y;
 }
@@ -96,7 +96,7 @@ Tree insert_avl(Tree node, TInfo key) {
         node->right = insert_avl(node->right, key);
     }
 
-    node->height = 1 + (std::max)(getHeight(node->left), getHeight(node->right));
+    node->height = 1 + std::max(getHeight(node->left->info.average_mark), getHeight(node->right->info.average_mark));
 
     int balance = getBalance(node);
 
