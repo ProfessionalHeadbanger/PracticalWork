@@ -125,7 +125,7 @@ Tree Build_avl(std::string filename)
 {
 	std::fstream file(filename);
 	Student st;
-	Tree Res;
+	Tree Res = nullptr;
 	while(file >> st)
 	{
 		Res = insert_avl(Res, st);
