@@ -44,6 +44,16 @@ Tree Build_Search(std::string file_name)
 	return root;
 }
 
+Tree newNode(TInfo key)
+{
+    Tree node = new NODE();
+    node->info = key;
+    node->left = nullptr;
+    node->right = nullptr;
+    node->height = 1;
+    return node;
+}
+
 int getHeight(Tree node) {
     if (node == nullptr) {
         return 0;
@@ -58,15 +68,22 @@ int getBalance(Tree node) {
     return getHeight(node->left) - getHeight(node->right);
 }
 
+void updateHeight(Tree node)
+{
+    int leftHeight = getHeight(node->left);
+    int rightHeight = getHeight(node->right);
+    node->height = (std::max)(leftHeight, rightHeight) + 1;
+}
+
 Tree rotateRight(Tree y) {
     Tree x = y->left;
-    Tree T2 = x->right;
+    Tree T2 = x->right; //выдает исключение здесь, так как y->left = NULL, а x->right и подавно NULL
 
     x->right = y;
     y->left = T2;
 
-    y->height = std::max(getHeight(y->left), getHeight(y->right)) + 1;
-    x->height = (std::max)(getHeight(x->left), getHeight(x->right)) + 1;
+    updateHeight(y);
+    updateHeight(x);
 
     return x;
 }
@@ -78,8 +95,8 @@ Tree rotateLeft(Tree x) {
     y->left = x;
     x->right = T2;
 
-    x->height = std::max(getHeight(x->left), getHeight(x->right)) + 1;
-    y->height = std::max(getHeight(y->left), getHeight(y->right)) + 1;
+    updateHeight(x);
+    updateHeight(y);
 
     return y;
 }
@@ -87,16 +104,23 @@ Tree rotateLeft(Tree x) {
 
 Tree insert_avl(Tree node, TInfo key) {
     if (node == nullptr) {
-        node = new NODE(key);
+        return newNode(key);
     }
 
-    if (key.average_mark <= node->info.average_mark) {
+    if (key.average_mark < node->info.average_mark) 
+    {
         node->left = insert_avl(node->left, key);
-    } else if (key.average_mark > node->info.average_mark) {
+    } 
+    else if (key.average_mark > node->info.average_mark) 
+    {
+        node->right = insert_avl(node->right, key);
+    }
+    else
+    {
         node->right = insert_avl(node->right, key);
     }
 
-    node->height = 1 + std::max(getHeight(node->left->info.average_mark), getHeight(node->right->info.average_mark));
+    updateHeight(node);
 
     int balance = getBalance(node);
 
@@ -121,17 +145,17 @@ Tree insert_avl(Tree node, TInfo key) {
     return node;
 }
 
-Tree Build_avl(std::string filename)
+Tree Build_AVL(std::string file_name)
 {
-	std::fstream file(filename);
-	Student st;
-	Tree Res;
-	while(file >> st)
-	{
-		Res = insert_avl(Res, st);
-	}
+	std::ifstream file(file_name);
+	Tree root = nullptr;
+	Student St;
+	while (file >> St)
+		{
+			root = insert_avl(root, St);
+		}
 	file.close();
-	return Res;
+	return root;
 }
 
 void Print(Tree t, std::string& str, int level = 0)
