@@ -13,7 +13,7 @@ namespace CourseWork
 		this->textBox3->Visible = false;
 		this->textBox4->Visible = false;
 		this->textBox5->Visible = false;
-		this->label1->Text = "Äåðåâî ïîèñêà";
+		this->label1->Text = "Ã„Ã¥Ã°Ã¥Ã¢Ã® Ã¯Ã®Ã¨Ã±ÃªÃ ";
 		this->label1->Visible = true;
 		this->richTextBox1->Visible = true;
 		std::string str;
@@ -27,14 +27,20 @@ namespace CourseWork
 	System::Void ResultOutput::button4_Click(System::Object^ sender, System::EventArgs^ e) {
 		msclr::interop::marshal_context context;
 		std::string fname = context.marshal_as<std::string>(file_name);
-		Tree T = Build_AVL(fname);
+		std::fstream file(fname);
+		Tree T;
+		Student st
+		while(file >> st)
+		{
+			T = insert_avl(T,st);
+		}
 
 		this->textBox1->Visible = false;
 		this->textBox2->Visible = false;
 		this->textBox3->Visible = false;
 		this->textBox4->Visible = false;
 		this->textBox5->Visible = false;
-		this->label1->Text = "ÀÂË-Äåðåâî ïîèñêà";
+		this->label1->Text = "Ã€Ã‚Ã‹-Ã„Ã¥Ã°Ã¥Ã¢Ã® Ã¯Ã®Ã¨Ã±ÃªÃ ";
 		this->label1->Visible = true;
 		this->richTextBox1->Visible = true;
 		std::string str;
