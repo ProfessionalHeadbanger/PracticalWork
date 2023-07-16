@@ -77,11 +77,17 @@ void updateHeight(Tree node)
 
 Tree rotateRight(Tree y) {
     Tree x = y->left;
-    Tree T2 = x->right; //выдает исключение здесь, так как y->left = NULL, а x->right и подавно NULL
-
+	if(x->right != nullptr)
+	{
+    	Tree T2 = x->right; //выдает исключение здесь, так как y->left = NULL, а x->right и подавно NULL
+	}
+	
     x->right = y;
-    y->left = T2;
-
+	if(x->right != nullptr)
+	{
+	    y->left = T2;
+	}
+	
     updateHeight(y);
     updateHeight(x);
 
@@ -90,11 +96,16 @@ Tree rotateRight(Tree y) {
 
 Tree rotateLeft(Tree x) {
     Tree y = x->right;
-    Tree T2 = y->left;
-
+	if(y->left != nullptr)
+	{
+  		Tree T2 = y->left;
+	}
+	
     y->left = x;
-    x->right = T2;
-
+	if(y->left != nullptr)
+	{
+    	x->right = T2;
+	}
     updateHeight(x);
     updateHeight(y);
 
