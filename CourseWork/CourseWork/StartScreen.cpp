@@ -7,7 +7,7 @@ namespace CourseWork
 {
 	System::Void StartScreen::button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		InputFileName^ f1 = gcnew InputFileName(this);
-		f1->SetTextButton("Ñîçäàòü");
+		f1->SetTextButton("Ğ¡Ğ¾Ğ·Ğ´Ğ°Ñ‚ÑŒ");
 		f1->SetIsNewFile(true);
 		f1->Show();
 		this->Hide();
@@ -18,7 +18,7 @@ namespace CourseWork
 {
 	System::Void StartScreen::button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		InputFileName^ f2 = gcnew InputFileName(this);
-		f2->SetTextButton("Îòêğûòü");
+		f2->SetTextButton("ĞÑ‚ĞºÑ€Ñ‹Ñ‚ÑŒ");
 		f2->SetIsNewFile(false);
 		f2->Show();
 		this->Hide();
