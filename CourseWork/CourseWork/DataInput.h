@@ -82,7 +82,7 @@ namespace CourseWork {
 			   this->label1->Name = L"label1";
 			   this->label1->Size = System::Drawing::Size(109, 20);
 			   this->label1->TabIndex = 0;
-			   this->label1->Text = L"Ввод данных";
+			   this->label1->Text = L"Р’РІРѕРґ РґР°РЅРЅС‹С…";
 			   // 
 			   // label2
 			   // 
@@ -91,7 +91,7 @@ namespace CourseWork {
 			   this->label2->Name = L"label2";
 			   this->label2->Size = System::Drawing::Size(56, 13);
 			   this->label2->TabIndex = 1;
-			   this->label2->Text = L"Фамилия";
+			   this->label2->Text = L"Р¤Р°РјРёР»РёСЏ";
 			   // 
 			   // label3
 			   // 
@@ -100,7 +100,7 @@ namespace CourseWork {
 			   this->label3->Name = L"label3";
 			   this->label3->Size = System::Drawing::Size(29, 13);
 			   this->label3->TabIndex = 2;
-			   this->label3->Text = L"Имя";
+			   this->label3->Text = L"РРјСЏ";
 			   // 
 			   // label4
 			   // 
@@ -109,7 +109,7 @@ namespace CourseWork {
 			   this->label4->Name = L"label4";
 			   this->label4->Size = System::Drawing::Size(45, 13);
 			   this->label4->TabIndex = 3;
-			   this->label4->Text = L"Оценки";
+			   this->label4->Text = L"РћС†РµРЅРєРё";
 			   // 
 			   // button1
 			   // 
@@ -117,7 +117,7 @@ namespace CourseWork {
 			   this->button1->Name = L"button1";
 			   this->button1->Size = System::Drawing::Size(155, 56);
 			   this->button1->TabIndex = 11;
-			   this->button1->Text = L"Внести новую запись";
+			   this->button1->Text = L"Р’РІРµСЃС‚Рё РЅРѕРІСѓСЋ Р·Р°РїРёСЃСЊ";
 			   this->button1->UseVisualStyleBackColor = true;
 			   this->button1->Click += gcnew System::EventHandler(this, &DataInput::button1_Click);
 			   // 
@@ -127,7 +127,7 @@ namespace CourseWork {
 			   this->button2->Name = L"button2";
 			   this->button2->Size = System::Drawing::Size(155, 56);
 			   this->button2->TabIndex = 12;
-			   this->button2->Text = L"Завершить ввод";
+			   this->button2->Text = L"Р—Р°РІРµСЂС€РёС‚СЊ РІРІРѕРґ";
 			   this->button2->UseVisualStyleBackColor = true;
 			   this->button2->Click += gcnew System::EventHandler(this, &DataInput::button2_Click);
 			   // 
@@ -230,7 +230,7 @@ namespace CourseWork {
 			   this->Controls->Add(this->label2);
 			   this->Controls->Add(this->label1);
 			   this->Name = L"DataInput";
-			   this->Text = L"Учебная практика";
+			   this->Text = L"РЈС‡РµР±РЅР°СЏ РїСЂР°РєС‚РёРєР°";
 			   this->ResumeLayout(false);
 			   this->PerformLayout();
 
@@ -273,13 +273,13 @@ namespace CourseWork {
 			}
 			else
 			{
-				MessageBox::Show(L"Значения в полях \"Оценки\" должны быть в диапазоне от 2 до 5", L"Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+				MessageBox::Show(L"Р—РЅР°С‡РµРЅРёСЏ РІ РїРѕР»СЏС… \"РћС†РµРЅРєРё\" РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ РІ РґРёР°РїР°Р·РѕРЅРµ РѕС‚ 2 РґРѕ 5", L"РћС€РёР±РєР°", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 			}
 
 		}
 		else
 		{
-			MessageBox::Show(L"Вы не ввели некоторые данные", L"Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+			MessageBox::Show(L"Р’С‹ РЅРµ РІРІРµР»Рё РЅРµРєРѕС‚РѕСЂС‹Рµ РґР°РЅРЅС‹Рµ", L"РћС€РёР±РєР°", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 		}
 	}
 
