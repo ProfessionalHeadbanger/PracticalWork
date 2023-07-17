@@ -257,7 +257,7 @@ namespace CourseWork {
 			for (int i = 0; i < 5; i++)
 				if (x.marks[i] == 5)
 					count_of_ex++;
-			if (max_ex == count_of_ex)
+			if (max_ex == count_of_ex && max_ax != 0)
 				str += x.last_name + " " + std::to_string(x.marks[0]) + " " + std::to_string(x.marks[1]) + " " + std::to_string(x.marks[2]) + " " + std::to_string(x.marks[3]) + " " + std::to_string(x.marks[4]) + "\n";
 		}
 		this->label1->Text = "Лучшие студенты";
