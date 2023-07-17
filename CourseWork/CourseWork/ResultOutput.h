@@ -91,7 +91,7 @@ namespace CourseWork {
 			   this->button1->Name = L"button1";
 			   this->button1->Size = System::Drawing::Size(150, 23);
 			   this->button1->TabIndex = 0;
-			   this->button1->Text = L"Äèíàìè÷åñêàÿ öåïî÷êà 1";
+			   this->button1->Text = L"Ð”Ð¸Ð½Ð°Ð¼Ð¸Ñ‡ÐµÑÐºÐ°Ñ Ñ†ÐµÐ¿Ð¾Ñ‡ÐºÐ° 1";
 			   this->button1->UseVisualStyleBackColor = true;
 			   this->button1->Click += gcnew System::EventHandler(this, &ResultOutput::button1_Click);
 			   // 
@@ -101,7 +101,7 @@ namespace CourseWork {
 			   this->button2->Name = L"button2";
 			   this->button2->Size = System::Drawing::Size(150, 23);
 			   this->button2->TabIndex = 1;
-			   this->button2->Text = L"Äèíàìè÷åñêàÿ öåïî÷êà 2";
+			   this->button2->Text = L"Ð”Ð¸Ð½Ð°Ð¼Ð¸Ñ‡ÐµÑÐºÐ°Ñ Ñ†ÐµÐ¿Ð¾Ñ‡ÐºÐ° 2";
 			   this->button2->UseVisualStyleBackColor = true;
 			   this->button2->Click += gcnew System::EventHandler(this, &ResultOutput::button2_Click);
 			   // 
@@ -111,7 +111,7 @@ namespace CourseWork {
 			   this->button3->Name = L"button3";
 			   this->button3->Size = System::Drawing::Size(150, 23);
 			   this->button3->TabIndex = 2;
-			   this->button3->Text = L"Äåðåâî ïîèñêà";
+			   this->button3->Text = L"Ð”ÐµÑ€ÐµÐ²Ð¾ Ð¿Ð¾Ð¸ÑÐºÐ°";
 			   this->button3->UseVisualStyleBackColor = true;
 			   this->button3->Click += gcnew System::EventHandler(this, &ResultOutput::button3_Click);
 			   // 
@@ -121,7 +121,7 @@ namespace CourseWork {
 			   this->button4->Name = L"button4";
 			   this->button4->Size = System::Drawing::Size(150, 23);
 			   this->button4->TabIndex = 3;
-			   this->button4->Text = L"ÀÂË-Äåðåâî ïîèñêà";
+			   this->button4->Text = L"ÐÐ’Ð›-Ð”ÐµÑ€ÐµÐ²Ð¾ Ð¿Ð¾Ð¸ÑÐºÐ°";
 			   this->button4->UseVisualStyleBackColor = true;
 			   this->button4->Click += gcnew System::EventHandler(this, &ResultOutput::button4_Click);
 			   // 
@@ -131,7 +131,7 @@ namespace CourseWork {
 			   this->button5->Name = L"button5";
 			   this->button5->Size = System::Drawing::Size(150, 23);
 			   this->button5->TabIndex = 4;
-			   this->button5->Text = L"Ñïèñîê ëó÷øèõ ñòóäåíòîâ";
+			   this->button5->Text = L"Ð¡Ð¿Ð¸ÑÐ¾Ðº Ð»ÑƒÑ‡ÑˆÐ¸Ñ… ÑÑ‚ÑƒÐ´ÐµÐ½Ñ‚Ð¾Ð²";
 			   this->button5->UseVisualStyleBackColor = true;
 			   this->button5->Click += gcnew System::EventHandler(this, &ResultOutput::button5_Click);
 			   // 
@@ -144,7 +144,7 @@ namespace CourseWork {
 			   this->label1->Name = L"label1";
 			   this->label1->Size = System::Drawing::Size(98, 20);
 			   this->label1->TabIndex = 10;
-			   this->label1->Text = L"×òî âûâåñòè";
+			   this->label1->Text = L"Ð§Ñ‚Ð¾ Ð²Ñ‹Ð²ÐµÑÑ‚Ð¸";
 			   this->label1->Visible = false;
 			   // 
 			   // richTextBox1
@@ -169,7 +169,7 @@ namespace CourseWork {
 			   this->Controls->Add(this->button2);
 			   this->Controls->Add(this->button1);
 			   this->Name = L"ResultOutput";
-			   this->Text = L"Ó÷åáíàÿ ïðàêòèêà";
+			   this->Text = L"Ð£Ñ‡ÐµÐ±Ð½Ð°Ñ Ð¿Ñ€Ð°ÐºÑ‚Ð¸ÐºÐ°";
 			   this->ResumeLayout(false);
 			   this->PerformLayout();
 
@@ -193,7 +193,7 @@ namespace CourseWork {
 		}
 
 		std::string str;
-		this->label1->Text = "Äèíàìè÷åñêàÿ öåïî÷êà 1";
+		this->label1->Text = "Ð”Ð¸Ð½Ð°Ð¼Ð¸Ñ‡ÐµÑÐºÐ°Ñ Ñ†ÐµÐ¿Ð¾Ñ‡ÐºÐ° 1";
 		this->label1->Visible = true;
 		while (!students_output.empty())
 		{
@@ -219,7 +219,7 @@ namespace CourseWork {
 			std::swap(*i, *min_in);
 		}
 		std::string str;
-		this->label1->Text = "Äèíàìè÷åñêàÿ öåïî÷êà 2";
+		this->label1->Text = "Ð”Ð¸Ð½Ð°Ð¼Ð¸Ñ‡ÐµÑÐºÐ°Ñ Ñ†ÐµÐ¿Ð¾Ñ‡ÐºÐ° 2";
 		this->label1->Visible = true;
 		while (!students.empty())
 		{
@@ -255,7 +255,7 @@ namespace CourseWork {
 			if (max_ex == count_of_ex && max_ex != 0)
 				str += x.last_name + " " + std::to_string(x.marks[0]) + " " + std::to_string(x.marks[1]) + " " + std::to_string(x.marks[2]) + " " + std::to_string(x.marks[3]) + " " + std::to_string(x.marks[4]) + "\n";
 		}
-		this->label1->Text = "Ëó÷øèå ñòóäåíòû";
+		this->label1->Text = "Ð›ÑƒÑ‡ÑˆÐ¸Ðµ ÑÑ‚ÑƒÐ´ÐµÐ½Ñ‚Ñ‹";
 		this->label1->Visible = true;
 		this->richTextBox1->Text = gcnew System::String(str.c_str());
 	}
