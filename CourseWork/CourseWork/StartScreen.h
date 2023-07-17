@@ -47,7 +47,7 @@ namespace CourseWork {
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(115, 53);
 			this->button1->TabIndex = 0;
-			this->button1->Text = L"Ð¡Ð¾Ð·Ð´Ð°Ñ‚ÑŒ Ð½Ð¾Ð²Ñ‹Ð¹ Ñ„Ð°Ð¹Ð»";
+			this->button1->Text = L"Ñîçäàòü íîâûé ôàéë";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &StartScreen::button1_Click);
 			// 
@@ -57,7 +57,7 @@ namespace CourseWork {
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(115, 53);
 			this->button2->TabIndex = 1;
-			this->button2->Text = L"ÐžÑ‚ÐºÑ€Ñ‹Ñ‚ÑŒ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÑŽÑ‰Ð¸Ð¹ Ñ„Ð°Ð¹Ð»";
+			this->button2->Text = L"Îòêðûòü ñóùåñòâóþùèé ôàéë";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &StartScreen::button2_Click);
 			// 
@@ -70,7 +70,7 @@ namespace CourseWork {
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(379, 31);
 			this->label1->TabIndex = 2;
-			this->label1->Text = L"Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð¾Ð´Ð¸Ð½ Ð¸Ð· Ð²Ð°Ñ€Ð¸Ð°Ð½Ñ‚Ð¾Ð²";
+			this->label1->Text = L"Âûáåðèòå îäèí èç âàðèàíòîâ";
 			// 
 			// StartScreen
 			// 
@@ -81,7 +81,7 @@ namespace CourseWork {
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Name = L"StartScreen";
-			this->Text = L"Ð£Ñ‡ÐµÐ±Ð½Ð°Ñ Ð¿Ñ€Ð°ÐºÑ‚Ð¸ÐºÐ°";
+			this->Text = L"Ó÷åáíàÿ ïðàêòèêà";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

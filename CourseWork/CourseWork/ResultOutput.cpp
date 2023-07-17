@@ -8,7 +8,7 @@ namespace CourseWork
 		std::string fname = context.marshal_as<std::string>(file_name);
 		Tree T = Build_Search(fname);
 
-		this->label1->Text = "Ð”ÐµÑ€ÐµÐ²Ð¾ Ð¿Ð¾Ð¸ÑÐºÐ°";
+		this->label1->Text = "Äåðåâî ïîèñêà";
 		this->label1->Visible = true;
 		std::string str;
 		Print(T, str);
@@ -23,7 +23,7 @@ namespace CourseWork
 		std::string fname = context.marshal_as<std::string>(file_name);
 		Tree T = Build_AVL(fname);
 
-		this->label1->Text = "ÐÐ’Ð›-Ð”ÐµÑ€ÐµÐ²Ð¾ Ð¿Ð¾Ð¸ÑÐºÐ°";
+		this->label1->Text = "ÀÂË-Äåðåâî ïîèñêà";
 		this->label1->Visible = true;
 		std::string str;
 		Print(T, str);
